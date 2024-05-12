@@ -46,22 +46,78 @@ const hero = $p.get(input, '/partials/hero')
 $p.set(input, '/sections/-', hero({logo, h1, subtitle}))
 ```
 
-
-## Just Write Markdown
-A format most coders will be familiar with. Enhanced with just a few conventions to simplify life. 
-```
-```
-
-## Execute the Code Blocks
-All Typescript code blocks are executed in sequence, and anything added to the global `input` object is _piped down_ To the next code block!
-Marry your code with a gloriously expressive, publishable format
-Test inputs, config, conditional execution, import other pipes and more!
-```
+## howToInstall
+```ts
+const installSection = $p.get(input, '/partials/installSection')
+$p.set(input, '/sections/-', installSection)
 ```
 
-## Export for any usecase
-Pipedown exports your
+
+## writeMarkdown
+At the end of the day, Pipedown is just Markdown. All it is doing is parsing markdown, reading the code blocks, and running them. A few conventions add some ergonomics, but the familiarity of Markdown is a key power. "Execute" the markdown, data flows through the Pipe... down.
+
+```ts
+const feature = $p.get(input, '/partials/featureColumn')
+$p.set(input, '/sections/-', feature({
+  h2: "Write Markdown",
+  copy: "Pipedown is just Markdown. Write your code in Markdown, and Pipedown will execute it. It's that simple.",
+  src: "/png/heroExample.png"
+}))
 ```
+
+## usesDeno
+```ts
+const feature = $p.get(input, '/partials/featureWithScreenshot')
+$p.set(input, '/sections/-', feature({
+  h2: "Built on Deno",
+  pretitle: "Batteries included",
+  copy: "Pipedown is just Markdown. Write your code in Markdown, and Pipedown will execute it. It's that simple.",
+  src: "/png/heroExample.png"
+}))
+```
+
+## buildAnything
+```ts
+const feature = $p.get(input, '/partials/featureWithScreenshot')
+$p.set(input, '/sections/-', feature({
+  h2: "Build anything",
+  //pretitle: "Batteries included",
+  copy: "Pipedown is just Markdown. Write your code in Markdown, and Pipedown will execute it. It's that simple.",
+  src: "/png/heroExample.png"
+}))
+```
+
+## developersAndAll
+```ts
+const feature = $p.get(input, '/partials/featureWithScreenshot')
+$p.set(input, '/sections/-', feature({
+  h2: "Accessible to all",
+  //pretitle: "Batteries included",
+  copy: "Pipedown is just Markdown. Write your code in Markdown, and Pipedown will execute it. It's that simple.",
+  src: "/png/heroExample.png"
+}))
+```
+
+## shipMoreFightLess
+```ts
+const feature = $p.get(input, '/partials/featureWithScreenshot')
+$p.set(input, '/sections/-', feature({
+  h2: "Just what you need",
+  //pretitle: "Batteries included",
+  copy: "Embrace the constraints.",
+  src: "/png/heroExample.png"
+}))
+```
+
+## meantForReading
+```ts
+const feature = $p.get(input, '/partials/featureWithScreenshot')
+$p.set(input, '/sections/-', feature({
+  h2: "Read then write",
+  //pretitle: "Batteries included",
+  copy: "Pipedown is just Markdown. Write your code in Markdown, and Pipedown will execute it. It's that simple.",
+  src: "/png/heroExample.png"
+}))
 ```
 
 ## putSectionsTogether
