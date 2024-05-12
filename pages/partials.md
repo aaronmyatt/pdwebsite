@@ -128,22 +128,19 @@ For the smallest breakpoint Tailwindui was suggesting a `<select>` but I am plan
 ```
 
 ```ts
-input.installSection = `<div class="w-1/2 mx-auto">
+input.installSection = `<div class="w-1/2 mx-auto" name="installTabs">
   <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Install</h2>
-  <div name="installTabs flex flex-col items-center">
-    <div class="border-b border-gray-200">
-      <nav class="-mb-px flex" aria-label="Tabs">
-        <!-- Current: "border-indigo-500 text-indigo-600", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
-        <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 w-1/2 border-b-2 py-4 px-1 text-center text-sm font-medium">Mac / Linux</a>
-        <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 w-1/2 border-b-2 py-4 px-1 text-center text-sm font-medium">Windows</a>
-      </nav>
-    </div>
+  <div class="border-b border-gray-200">
+    <nav class="-mb-px flex" aria-label="Tabs">
+      <a href class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 w-1/2 border-b-2 py-4 px-1 text-center text-sm font-medium border-indigo-500 text-indigo-600">Mac / Linux</a>
+      <a href class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 w-1/2 border-b-2 py-4 px-1 text-center text-sm font-medium">Windows</a>
+    </nav>
   </div>
-  <div class="tab1 maclinux flex items-center flex-col">
+  <div class="tabcontent maclinux flex items-center flex-col">
     <pre><code>curl -fsSL https://deno.land/install.sh | sh</code></pre>
     <pre><code>deno install -Arfg -n pd jsr:@pd/pdcli</code></pre>
   </div>
-  <div class="tab2 windows flex items-center flex-col">
+  <div class="tabcontent windows flex items-center flex-col ${Deno.env.has('DENO_DEPLOYMENT_ID') && 'hidden'}">
     <pre><code>irm https://deno.land/install.ps1 | iex</code></pre>
     <pre><code>deno install -Arfg -n pd jsr:@pd/pdcli</code></pre>
   </div>

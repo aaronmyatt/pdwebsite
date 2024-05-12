@@ -120,6 +120,15 @@ $p.set(input, '/sections/-', feature({
 }))
 ```
 
+## addScripts
+```ts
+input.sections.push(`<script src="/scripts/toggleInstallTabs/index.iife.js"></script>
+<script>
+PD.toggleInstallTabs.pipe.process()
+</script>`)
+
+```
+
 ## putSectionsTogether
 ```ts
 const sections = input.sections.join('\n')
