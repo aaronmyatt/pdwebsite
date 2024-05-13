@@ -57,22 +57,22 @@ $p.set(input, '/sections/-', installSection)
 At the end of the day, Pipedown is just Markdown. All it is doing is parsing markdown, reading the code blocks, and running them. A few conventions add some ergonomics, but the familiarity of Markdown is a key power. "Execute" the markdown, data flows through the Pipe... down.
 
 ```ts
-const feature = $p.get(input, '/partials/featureColumn')
+const feature = $p.get(input, '/partials/featureWithScreenshot')
 $p.set(input, '/sections/-', feature({
   h2: "Write Markdown",
   copy: "Pipedown is just Markdown. Write your code in Markdown, and Pipedown will execute it. It's that simple.",
-  src: "/png/heroExample.png"
+  src: "/png/justMarkdown.png"
 }))
 ```
 
 ## usesDeno
 ```ts
-const feature = $p.get(input, '/partials/featureWithScreenshot')
+const feature = $p.get(input, '/partials/featureColumn')
 $p.set(input, '/sections/-', feature({
   h2: "Built on Deno",
   pretitle: "Batteries included",
   copy: "Pipedown is just Markdown. Write your code in Markdown, and Pipedown will execute it. It's that simple.",
-  src: "/png/heroExample.png"
+  src: "/png/justDeno.png"
 }))
 ```
 
@@ -83,7 +83,7 @@ $p.set(input, '/sections/-', feature({
   h2: "Build anything",
   //pretitle: "Batteries included",
   copy: "Pipedown is just Markdown. Write your code in Markdown, and Pipedown will execute it. It's that simple.",
-  src: "/png/heroExample.png"
+  src: "/png/justBuild.png"
 }))
 ```
 
@@ -94,18 +94,18 @@ $p.set(input, '/sections/-', feature({
   h2: "Accessible to all",
   //pretitle: "Batteries included",
   copy: "Pipedown is just Markdown. Write your code in Markdown, and Pipedown will execute it. It's that simple.",
-  src: "/png/heroExample.png"
+  src: "/png/justCollaborate.png"
 }))
 ```
 
 ## shipMoreFightLess
 ```ts
-const feature = $p.get(input, '/partials/featureWithScreenshot')
+const feature = $p.get(input, '/partials/featureColumn')
 $p.set(input, '/sections/-', feature({
   h2: "Just what you need",
   //pretitle: "Batteries included",
   copy: "Embrace the constraints.",
-  src: "/png/heroExample.png"
+  src: "/png/justEnough.png"
 }))
 ```
 
@@ -116,8 +116,14 @@ $p.set(input, '/sections/-', feature({
   h2: "Read then write",
   //pretitle: "Batteries included",
   copy: "Pipedown is just Markdown. Write your code in Markdown, and Pipedown will execute it. It's that simple.",
-  src: "/png/heroExample.png"
+  src: "/png/justRead.png"
 }))
+```
+
+## includeFooter
+```ts
+const footer = $p.get(input, '/partials/footer')
+$p.set(input, '/sections/-', footer);
 ```
 
 ## addScripts
@@ -126,7 +132,6 @@ input.sections.push(`<script src="/scripts/toggleInstallTabs/index.iife.js"></sc
 <script>
 PD.toggleInstallTabs.pipe.process()
 </script>`)
-
 ```
 
 ## putSectionsTogether

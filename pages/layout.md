@@ -52,7 +52,7 @@ input.navbar = `
 
 ## Boilerplate
 ```ts
-input.layout = (body) => `<html class="no-js" lang="">
+input.layout = (body, footer) => `<html class="no-js" lang="">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -79,6 +79,7 @@ input.layout = (body) => `<html class="no-js" lang="">
   <section id="app">
     ${body}
   </section>
+  ${footer && footer}
 </body>
 
 </html>
