@@ -8,49 +8,42 @@ Lifted [this hero section](https://tailwindui.com/components/marketing/sections/
 The complexity of the component makes my brain spin. No doubt great thought has gone into the example, particularly to make the diagonal... shadow(?) seamlessly cross from outside to inside the code example. Daisyui has a lovely components that will fit nicely within this layout, like these [Code mockup](https://daisyui.com/components/mockup-code/) examples.
 
 ```ts
-const whatsNew = `<div class="mt-24 sm:mt-32 lg:mt-16">
-    <a href="#" class="inline-flex space-x-6">
-    <span class="rounded-full bg-indigo-600/10 px-3 py-1 text-sm font-semibold leading-6 text-indigo-600 ring-1 ring-inset ring-indigo-600/10">What's new</span>
-    <span class="inline-flex items-center space-x-2 text-sm font-medium leading-6 text-gray-600">
-        <span>Just shipped v0.1.0</span>
-        <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-        <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
-        </svg>
-    </span>
-    </a>
-</div>`
+const whatsNew = `<a href="https://github.com/aaronmyatt/pipedown" class="inline-flex space-x-6">
+  <span class="rounded-full bg-indigo-600/10 px-3 py-1 text-sm font-semibold leading-6 text-indigo-600 ring-1 ring-inset ring-indigo-600/10">What's new</span>
+  <span class="inline-flex items-center space-x-2 text-sm font-medium leading-6 text-gray-600">
+      <span>Just shipped v0.0.1</span>
+      <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+      <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+      </svg>
+  </span>
+</a>`
 
 const heroNav = `<div class="mt-10 flex items-center gap-x-6">
-    <a href="#" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Documentation</a>
-    <a href="#" class="text-sm font-semibold leading-6 text-gray-900">View on GitHub <span aria-hidden="true">→</span></a>
+    <a href="https://github.com/aaronmyatt/pipedown" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Documentation</a>
+    <a href="https://github.com/aaronmyatt/pipedown" class="text-sm font-semibold leading-6 text-gray-900">View on GitHub <span aria-hidden="true">→</span></a>
 </div>`
 
 input.codeExamplePresentation = ({src}) => `<div class="mt-20 sm:mt-24 md:mx-auto md:max-w-2xl lg:mx-0 lg:mt-0 lg:w-screen">
-<div class="absolute inset-y-0 right-1/2 -z-10 -mr-10 w-[200%] skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 md:-mr-20 lg:-mr-36" aria-hidden="true"><!-- wat --></div>
-<div class="shadow-lg md:rounded-3xl">
-    <div class="bg-indigo-500 [clip-path:inset(0)] md:[clip-path:inset(0_round_theme(borderRadius.3xl))]">
-    <div class="absolute -inset-y-px left-1/2 -z-10 ml-10 w-[200%] skew-x-[-30deg] bg-indigo-100 opacity-20 ring-1 ring-inset ring-white md:ml-20 lg:ml-36" aria-hidden="true"><!-- wat --></div>
-    <div class="relative px-6 pt-8 sm:pt-16 md:pl-16 md:pr-0">
-        <div class="mx-auto max-w-2xl md:mx-0 md:max-w-none">
-        <div class="w-screen overflow-hidden rounded-tl-xl bg-gray-900">
-            <div class="flex bg-gray-800/40 ring-1 ring-white/5"><!-- wat --></div>
-            <img src="${src}" class="h-3/5"/>
+  <div class="shadow-lg md:rounded-3xl">
+      <div class="bg-indigo-500 [clip-path:inset(0)] md:[clip-path:inset(0_round_theme(borderRadius.3xl))]">
+        <div class="relative px-6 pt-8 sm:pt-16 md:pl-16 md:pr-0">
+            <div class="mx-auto max-w-2xl md:mx-0 md:max-w-none">
+              <div class="w-screen overflow-hidden rounded-tl-xl bg-gray-900">
+                  <div class="flex bg-gray-800/40 ring-1 ring-white/5"><!-- wat --></div>
+                  <img src="${src}" class="sm:w-1/5"/>
+              </div>
+            </div>
         </div>
-        </div>
-        <div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/10 md:rounded-3xl" aria-hidden="true"><!-- wat --></div>
-    </div>
-    </div>
-</div>
-</div>
+      </div>
+  </div>
 </div>`
 
-input.hero = ({logo, h1, subtitle}) => `<div class="bg-white">
-  <div class="relative isolate overflow-hidden bg-gradient-to-b from-indigo-100/20">
+input.hero = ({h1, subtitle}) => `<div class="bg-white">
+  <div class="isolate overflow-hidden bg-gradient-to-b from-indigo-100/20">
     <div class="mx-auto max-w-7xl pb-16 pt-10 sm:pb-24 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:py-24">
       <div class="px-6 lg:px-0 lg:pt-4">
         <div class="mx-auto max-w-2xl">
           <div class="max-w-lg">
-            <img class="h-11" src="${logo}" alt="Your Company" />
             ${whatsNew}
             <h1 class="mt-10 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">${h1}</h1>
             <p class="mt-6 text-lg leading-8 text-gray-600">${subtitle}</p>
@@ -59,63 +52,18 @@ input.hero = ({logo, h1, subtitle}) => `<div class="bg-white">
         </div>
       </div>
       ${input.codeExamplePresentation({src: "/png/hero.png"})}
-    <div class="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t from-white sm:h-32"><!-- wat --></div>
   </div>
 </div>
 `
 ```
 
-## featureColumn
-Can we just repurpose the hero section for the feature section? 
-
+## sectionContainer
+Based on the advise of my super designer friend, we want to standardise the padding between sections and _WITHIN_ sections. I'll do that with a little wrapper
 ```ts
-input.featureColumn = ({h2, copy, src, reverse}) => `<div class="bg-white">
-    <div class="mx-auto max-w-7xl pb-10 pt-8 sm:pb-12 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:py-16">
-      <div class="px-6 lg:px-0 lg:pt-4 ${reverse && 'order-2'}">
-        <div class="mx-auto max-w-2xl">
-          <div class="max-w-lg">
-            <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">${h2}</h1>
-            <div class="mt-10">
-              <p class="text-xl leading-8 text-justify text-gray-700">${copy}</p>
-            </div>
-            <div class="mt-10 flex">
-              <a href="#" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <img src="${src}" />
-</div>
-`
-```
-
-## featureWithScreenshot
-```ts
-input.featureWithScreenshot = ({h2, pretitle, copy, copy2, src}) => `<div class="bg-white py-4 sm:py-8">
-  <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
-      ${ pretitle ? `<p class="text-sm font-semibold leading-6 text-indigo-600">${pretitle}</p>` : '' }
-      <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">${h2}</h2>
-      <div class="mt-10 grid max-w-xl grid-cols-1 gap-8 text-base leading-7 text-gray-700 lg:max-w-none ${copy2 && 'lg:grid-cols-2'}">
-        <div>
-          <p class="text-xl leading-8 text-justify text-gray-700">${copy}</p>
-        </div>
-        ${copy2 ? `<div><p class="text-xl leading-8 text-justify text-gray-700">${copy2}</p>` : ''} 
-      </div>
-      <div class="mt-10 flex">
-        <a href="#" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
-      </div>
-    </div>
+input.wrapSection = (inner) => `
+  <div class="bg-white mx-auto max-w-7xl px-6 lg:px-0 lg:px-8 space-y-8 sm:space-y-10 md:space-y-12 mb-24 sm:md-28 md:mb-36">
+    ${inner}
   </div>
-  <div class="relative overflow-hidden pt-16 lg:pt-20">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-      <img class="mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10" src="${src}" alt="">
-      <div class="relative" aria-hidden="true">
-        <div class="absolute -inset-x-20 bottom-0 bg-gradient-to-t from-white pt-[7%]"></div>
-      </div>
-    </div>
-  </div>
-</div>
 `
 ```
 
@@ -133,23 +81,66 @@ For the smallest breakpoint Tailwindui was suggesting a `<select>` but I am plan
 ```
 
 ```ts
-input.installSection = `<div class="w-1/2 mx-auto text-center" name="installTabs">
-  <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Install</h2>
-  <div class="border-b border-gray-200">
-    <nav class="-mb-px flex" aria-label="Tabs">
-      <a href class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 w-1/2 border-b-2 py-4 px-1 text-center text-sm font-medium border-indigo-500 text-indigo-600">Mac / Linux</a>
-      <a href class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 w-1/2 border-b-2 py-4 px-1 text-center text-sm font-medium">Windows</a>
-    </nav>
+input.installSection = input.wrapSection(`<div class="mx-auto space-y-12" name="installTabs">
+  <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">Install</h2>
+  <div class="space-y-3 flex flex-col items-center">
+    <div class="border-b border-gray-200 w-full">
+      <nav class="-mb-px flex" aria-label="Tabs">
+        <a href class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 w-1/2 border-b-2 py-4 px-1 text-center text-sm font-medium border-indigo-500 text-indigo-600">Mac / Linux</a>
+        <a href class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 w-1/2 border-b-2 py-4 px-1 text-center text-sm font-medium">Windows</a>
+      </nav>
+    </div>
+    <div class="flex flex-col items-center md:w-1/2 text-xs sm:text-lg text-white">
+      <div class="tabcontent bg-gray-500 flex flex-col items-center p-4 rounded space-y-2">
+        <pre class="w-full"><code class="text-wrap">curl -fsSL https://deno.land/install.sh | sh</code></pre>
+        <pre class="w-full"><code class="text-wrap">deno install -Arfg -n pd jsr:@pd/pdcli</code></pre>
+      </div>
+      <div class="tabcontent windows bg-gray-500 flex flex-col items-center p-4 rounded space-y-2 ${Deno.env.has('DENO_DEPLOYMENT_ID') && 'hidden'}">
+        <pre class="w-full"><code class="text-wrap">irm https://deno.land/install.ps1 | iex</code></pre>
+        <pre class="w-full"><code class="text-wrap">deno install -Arfg -n pd jsr:@pd/pdcli</code></pre>
+      </div>
+    </div>
   </div>
-  <div class="tabcontent bg-gray-500 flex flex-col items-center p-4 rounded-2xl space-y-2 text-lg text-white">
-    <pre><code>curl -fsSL https://deno.land/install.sh | sh</code></pre>
-    <pre><code>deno install -Arfg -n pd jsr:@pd/pdcli</code></pre>
+</div>`)
+```
+
+## featureColumn
+Can we just repurpose the hero section for the feature section? 
+
+```ts
+input.featureColumn = ({h2, copy, src, reverse}) => input.wrapSection(`<div class="lg:grid lg:grid-cols-2 space-y-12">
+  <div class="space-y-12">
+    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">${h2}</h2>
+    <p class="text-base md:text-xl leading-normal md:leading-8 text-gray-700">${copy}</p>
+    <div>
+      <a href="https://github.com/aaronmyatt/pipedown" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
+    </div>
   </div>
-  <div class="tabcontent windows bg-gray-500 flex flex-col items-center p-4 rounded-2xl space-y-2 text-lg text-white ${Deno.env.has('DENO_DEPLOYMENT_ID') && 'hidden'}">
-    <pre><code>irm https://deno.land/install.ps1 | iex</code></pre>
-    <pre><code>deno install -Arfg -n pd jsr:@pd/pdcli</code></pre>
+  <img src="${src}" class="${reverse && 'order-1'}" />
+</div>`)
+```
+
+## featureWithScreenshot
+```ts
+input.featureWithScreenshot = ({h2, pretitle, copy, copy2, src}) => input.wrapSection(`
+  ${ pretitle ? `<p class="text-sm font-semibold leading-6 text-indigo-600">${pretitle}</p>` : '' }
+
+  <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">${h2}</h1>
+  <div>
+    <p class="text-base md:text-xl leading-normal md:leading-8 text-gray-700">${copy}</p>
   </div>
-</div>`
+  ${copy2 ? `<div><p class="text-base md:text-xl leading-normal md:leading-8 text-gray-700">${copy2}</p></div>` : ''} 
+  <div class="flex">
+    <a href="https://github.com/aaronmyatt/pipedown" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
+  </div>
+  <div class="relative overflow-hidden">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <img class="mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10" src="${src}" alt="">
+      <div class="relative" aria-hidden="true">
+        <div class="absolute -inset-x-20 bottom-0 bg-gradient-to-t from-white pt-[7%]"></div>
+      </div>
+    </div>
+  </div>`)
 ```
 
 ## footer

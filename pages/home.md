@@ -30,7 +30,7 @@ Some SaaS/software tool home pages I like:
 
 ```json
 {
-    "logo": "https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600",
+    "logo": "",
     "copy": {
         "h1": "Write Markdown, Build Anything",
         "subtitle": "Publish anywhere",
@@ -45,9 +45,9 @@ Some SaaS/software tool home pages I like:
 
 ## hero
 ```ts
-const { logo, copy: { h1, subtitle } } = opts.config
+const { copy: { h1, subtitle } } = opts.config
 const hero = $p.get(input, '/partials/hero')
-$p.set(input, '/sections/-', hero({logo, h1, subtitle}))
+$p.set(input, '/sections/-', hero({h1, subtitle}))
 ```
 
 ## howToInstall

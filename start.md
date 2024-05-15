@@ -22,6 +22,5 @@ Object.assign(input, await pages.process(input));
 - route: /scripts/*
 - ```ts
     const jsPath = $p.get(input, '/route/pathname/input')
-    console.log(Deno.cwd()+'/.pd'+jsPath)
     input.response = await serveFile(input.request, Deno.cwd()+'/.pd'+jsPath)
     ```
