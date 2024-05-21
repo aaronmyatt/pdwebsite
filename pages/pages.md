@@ -97,8 +97,7 @@ Object.assign(input, await layout.process(input));
 ## partials
 ```ts
 import _partials from 'partials';
-input.partials = {}
-Object.assign(input.partials, await _partials.process(input));
+input.partials = await _partials.process(input);
 input.sections = []
 ```
 
