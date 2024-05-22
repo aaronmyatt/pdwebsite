@@ -8,10 +8,10 @@ Lifted [this hero section](https://tailwindui.com/components/marketing/sections/
 The complexity of the component makes my brain spin. No doubt great thought has gone into the example, particularly to make the diagonal... shadow(?) seamlessly cross from outside to inside the code example. Daisyui has a lovely components that will fit nicely within this layout, like these [Code mockup](https://daisyui.com/components/mockup-code/) examples.
 
 ```ts
-const whatsNew = `<a href="https://github.com/aaronmyatt/pipedown" class="inline-flex space-x-6">
+const whatsNew = `<a href="https://jsr.io/@pd/pdcli" class="inline-flex space-x-6">
   <span class="rounded-full bg-indigo-600/10 px-3 py-1 text-sm font-semibold leading-6 text-indigo-600 ring-1 ring-inset ring-indigo-600/10">What's new</span>
   <span class="inline-flex items-center space-x-2 text-sm font-medium leading-6 text-gray-600">
-      <span>Just shipped v0.0.1</span>
+      <span>Just shipped <span name="pdcli-version" class="animate-pulse h-2 bg-slate-200 rounded col-span-2 text-transparent">0.0.0</span></span>
       <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
       <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
       </svg>
@@ -117,7 +117,7 @@ input.horizontalCards = ({
     body: "DEFAULT",
   }]
 }) => input.wrapSection(`<div>
-  <h2 class="text-sm font-medium text-gray-500">Pinned Projects</h2>
+  <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">${title}</h2>
   <ul role="list" class="mt-3 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
     ${cards.map(card => `<li class="col-span-1 flex rounded-md shadow-sm">
           <div class="flex w-16 flex-shrink-0 items-center justify-center bg-pink-600 rounded-l-md text-sm font-medium text-white">${card.icon}</div>
@@ -139,21 +139,27 @@ input.horizontalCards = ({
 Can we just repurpose the hero section for the feature section? 
 
 ```ts
-input.featureColumn = ({h2, copy, src, reverse}) => input.wrapSection(`<div class="lg:grid lg:grid-cols-2 space-y-12">
+const buttonEl = button => `<a href="${button.href}" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">${button.label}</a>`
+
+input.featureColumn = ({h2, copy, imageSrc, reverse, buttons} = { h2: '', copy: '', imageSrc: '', reverse: false, buttons: []}) => input.wrapSection(`<div class="lg:grid lg:grid-cols-2 space-y-12">
   <div class="space-y-12">
     <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">${h2}</h2>
     <p class="text-base md:text-xl leading-normal md:leading-8 text-gray-700">${copy}</p>
     <div>
-      <a href="https://github.com/aaronmyatt/pipedown" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
+      ${
+        buttons ? buttons.map(buttonEl).join("\n") : buttonEl({ href: 'https://github.com/aaronmyatt/pipedown', label: 'Get Started'})
+      }
     </div>
   </div>
-  <img src="${src}" class="${reverse && 'order-1'}" />
+  <img src="${imageSrc}" class="${reverse && 'order-1'}" />
 </div>`)
 ```
 
 ## featureWithScreenshot
 ```ts
-input.featureWithScreenshot = ({h2, pretitle, copy, copy2, src}) => input.wrapSection(`
+const buttonEl = button => `<a href="${button.href}" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">${button.label}</a>`
+
+input.featureWithScreenshot = ({h2, pretitle, copy, copy2, imageSrc, buttons}) => input.wrapSection(`
   ${ pretitle ? `<p class="text-sm font-semibold leading-6 text-indigo-600">${pretitle}</p>` : '' }
 
   <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">${h2}</h1>
@@ -162,11 +168,13 @@ input.featureWithScreenshot = ({h2, pretitle, copy, copy2, src}) => input.wrapSe
   </div>
   ${copy2 ? `<div><p class="text-base md:text-xl leading-normal md:leading-8 text-gray-700">${copy2}</p></div>` : ''} 
   <div class="flex">
-    <a href="https://github.com/aaronmyatt/pipedown" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
+      ${
+        buttons ? buttons.map(buttonEl).join("\n") : buttonEl({ href: 'https://github.com/aaronmyatt/pipedown', label: 'Get Started'})
+      }
   </div>
   <div class="relative overflow-hidden">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
-      <img class="mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10" src="${src}" alt="">
+      <img class="mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10" src="${imageSrc}" alt="">
       <div class="relative" aria-hidden="true">
         <div class="absolute -inset-x-20 bottom-0 bg-gradient-to-t from-white pt-[7%]"></div>
       </div>

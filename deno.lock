@@ -1,0 +1,42 @@
+{
+  "version": "3",
+  "packages": {
+    "specifiers": {
+      "jsr:@pd/pdpipe@0.1.1": "jsr:@pd/pdpipe@0.1.1",
+      "jsr:@pd/pointers@0.1.0": "jsr:@pd/pointers@0.1.0",
+      "jsr:@pd/pointers@0.1.1": "jsr:@pd/pointers@0.1.1",
+      "jsr:@std/dotenv": "jsr:@std/dotenv@0.224.0",
+      "npm:jsonpointer@5.0.1": "npm:jsonpointer@5.0.1"
+    },
+    "jsr": {
+      "@pd/pdpipe@0.1.1": {
+        "integrity": "5563661e80e3b1fea7b2ca841f02b39bada03f72c85033031ff15a45ef97b8d8",
+        "dependencies": [
+          "jsr:@pd/pointers@0.1.0"
+        ]
+      },
+      "@pd/pointers@0.1.0": {
+        "integrity": "9e0b0e07a7a9d97f216618f80dac1b74fb0128c055ec5e55ad681be3d15750d5",
+        "dependencies": [
+          "npm:jsonpointer@5.0.1"
+        ]
+      },
+      "@pd/pointers@0.1.1": {
+        "integrity": "d9109c0bb6fe9672f08edad6641e27c84e340eb8d5f9e9c4bb9fddca21e08cbe",
+        "dependencies": [
+          "npm:jsonpointer@5.0.1"
+        ]
+      },
+      "@std/dotenv@0.224.0": {
+        "integrity": "d9234cdf551507dcda60abb6c474289843741d8c07ee8ce540c60f5c1b220a1d"
+      }
+    },
+    "npm": {
+      "jsonpointer@5.0.1": {
+        "integrity": "sha512-p/nXbhSEcu3pZRdkW1OfJhpsVtW1gd4Wa1fnQc9YLiTfAjn0312eMKimbdIQzuZl9aa9xUGaRlP9T/CJE/ditQ==",
+        "dependencies": {}
+      }
+    }
+  },
+  "remote": {}
+}
