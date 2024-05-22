@@ -104,6 +104,37 @@ input.installSection = input.wrapSection(`<div class="mx-auto space-y-12" name="
 </div>`)
 ```
 
+## useCases
+
+```ts
+input.horizontalCards = ({
+  title, cards
+} = {
+  title: "",
+  cards: [{
+    icon: "DEFAULT",
+    title: "DEFAULT",
+    body: "DEFAULT",
+  }]
+}) => input.wrapSection(`<div>
+  <h2 class="text-sm font-medium text-gray-500">Pinned Projects</h2>
+  <ul role="list" class="mt-3 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
+    ${cards.map(card => `<li class="col-span-1 flex rounded-md shadow-sm">
+          <div class="flex w-16 flex-shrink-0 items-center justify-center bg-pink-600 rounded-l-md text-sm font-medium text-white">${card.icon}</div>
+          <div class="flex flex-1 items-center justify-between rounded-r-md border-b border-r border-t border-gray-200 bg-white">
+            <div class="flex-1 px-4 py-2 text-sm">
+              <a href="#" class="font-medium text-gray-900 hover:text-gray-600">${card.title}</a>
+              <p class="text-gray-500">${card.body}</p>
+            </div>
+          </div>
+        </li>`
+      ).join("\n")
+    }
+  </ul>
+</div>
+`)
+```
+
 ## featureColumn
 Can we just repurpose the hero section for the feature section? 
 
