@@ -25,16 +25,7 @@ const heroNav = `<div class="mt-10 flex items-center gap-x-6">
 
 input.codeExamplePresentation = ({src}) => `<div class="mt-20 sm:mt-24 md:mx-auto md:max-w-2xl lg:mx-0 lg:mt-0 lg:w-screen">
   <div class="shadow-lg md:rounded-3xl">
-      <div class="bg-indigo-500 [clip-path:inset(0)] md:[clip-path:inset(0_round_theme(borderRadius.3xl))]">
-        <div class="relative px-6 pt-8 sm:pt-16 md:pl-16 md:pr-0">
-            <div class="mx-auto max-w-2xl md:mx-0 md:max-w-none">
-              <div class="w-screen overflow-hidden rounded-tl-xl bg-gray-900">
-                  <div class="flex bg-gray-800/40 ring-1 ring-white/5"><!-- wat --></div>
-                  <img src="${src}" class="sm:w-1/5"/>
-              </div>
-            </div>
-        </div>
-      </div>
+      <img src="${src}" class=""/>
   </div>
 </div>`
 
