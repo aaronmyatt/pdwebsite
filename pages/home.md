@@ -38,8 +38,7 @@ Some SaaS/software tool home pages I like:
         "justBuild": "Use Pipedown to experiment, build, and publish any idea. From standalone scripts to serving websites, Pipedown will adapt to your needs.",
         "justDeno": "Leverage Deno's exciting ecosystem to build anything you can imagine. Pipedown is just Markdown, but with super (Deno) powers.",
         "justEnough": "You can use the full power of Deno, Typescript and WebAssembly <i>within</i> Pipedown codeblocks. <br/><br/> Pipedown handles the communication between codeblocks, and understands a few carefully crafted conventions to interpret your markdown and make writing code as simple as prose."
-    },
-    "build": ["esm"]
+    }
 }
 ```
 
