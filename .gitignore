@@ -2,3 +2,4 @@
 .pd/
 repl
 pages/html/processed/*.html
+pages/html/processed/examples.html
