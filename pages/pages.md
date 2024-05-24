@@ -107,3 +107,10 @@ input.sections = []
   import home from 'home';
   Object.assign(input, await home.process(input))
   ```
+
+## ExamplesPage
+- route: /examples
+- ```ts
+  import examples from 'examples';
+  Object.assign(input, await examples.process(input))
+  ```

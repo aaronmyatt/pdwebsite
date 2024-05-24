@@ -39,10 +39,10 @@ input.navbar = `
 <div class="navbar bg-base-100">
   <div class="navbar-start">
       <!-- mobile nav goes here -->
-    <span class="btn btn-ghost">
+    <a class="btn btn-ghost" href="/">
       <img src="/png/logo_green.jpeg" class="w-6"/>
-      <a class="text-xl">Pipedown</a>
-    </span>
+      <span class="text-xl">Pipedown</span>
+    </a>
   </div>
   <div class="navbar-center hidden lg:flex">
     <!-- desktop nav -->

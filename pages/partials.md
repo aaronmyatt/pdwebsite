@@ -19,7 +19,7 @@ const whatsNew = `<a href="https://jsr.io/@pd/pdcli" class="inline-flex space-x-
 </a>`
 
 const heroNav = `<div class="mt-10 flex items-center gap-x-6">
-    <a href="https://github.com/aaronmyatt/pipedown" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Documentation</a>
+    <a href="/examples" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Examples</a>
     <a href="https://github.com/aaronmyatt/pipedown" class="text-sm font-semibold leading-6 text-gray-900">View on GitHub <span aria-hidden="true">→</span></a>
 </div>`
 
