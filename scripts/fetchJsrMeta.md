@@ -4,7 +4,7 @@
 
 ```json
 {
-    "metaUrl": "/meta",
+    "metaUrl": "/api/meta",
     "build": ["iife"]
 }
 ```

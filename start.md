@@ -11,12 +11,11 @@ import pages from 'pages'
 Object.assign(input, await pages.process(input));
 ```
 
-## GetMeta
-A simple proxy to fetch the pdcli package meta so I don't need to fight cors
-- route: /meta
-- ```ts
-  input.response = await fetch("https://jsr.io/@pd/pdcli/meta.json")
-  ```
+## Serve API
+```ts
+import api from 'api'
+Object.assign(input, await api.process(input));
+```
 
 ## Serve Png
 - route: /png/*
