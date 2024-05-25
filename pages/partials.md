@@ -42,7 +42,7 @@ input.hero = ({h1, subtitle}) => `<div class="bg-white">
           </div>
         </div>
       </div>
-      ${input.codeExamplePresentation({src: "/png/hero.png"})}
+      ${input.codeExamplePresentation({src: "/img/hero.png"})}
   </div>
 </div>
 `

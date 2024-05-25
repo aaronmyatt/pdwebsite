@@ -1,6 +1,6 @@
 # Examples Page
 
-Writing HTML with pipes is totally possible, see [[home]] and [[partials]]. It just starts to feel a little masochistic! I really love the template literals though! Can I import a html file and still inject some template literals from the pipe? There's gotta be a simple library for that!
+Writing HTML with pipes is totally possible, see [[home]] and [[partials]]. It just starts to feel a little masochistic! I really love the template literals though. Can I import a html file and still inject some template literals from the pipe? There's gotta be a simple library for that!
 
 Though I don't want the header and footer to get out of sync, and reserve the right to pull in [[partials]] when I need them... 🤯
 
@@ -18,10 +18,13 @@ Let's try writing only the "body" html in the `./html` dir and processing each t
 ## processPage
 ```ts
 import layout from 'layout';
+import partials from 'partials'
+const { wrapSection } = await partials.process()
+const bodyWrapper = await layout.process()
 const body = await Deno.readTextFile(opts.config.bodyPath)
-const wrapped = await layout.process()
+const page = bodyWrapper.layout({body: wrapSection(body)});
 await Deno.mkdir(opts.config.processedDir, {recursive: true}).catch(console.error)
-await Deno.writeTextFile(opts.config.path, wrapped.layout({body}));
+await Deno.writeTextFile(opts.config.path, page);
 ```
 
 ## servePage

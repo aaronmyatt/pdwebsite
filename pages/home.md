@@ -102,7 +102,7 @@ const feature = $p.get(input, '/partials/featureWithScreenshot')
 $p.set(input, '/sections/-', feature({
   h2: "Write Markdown",
   copy: $p.get(opts, '/config/copy/justMarkdown'),
-  imageSrc: "/png/justMarkdown.png"
+  imageSrc: "/img/justMarkdown.png"
 }))
 ```
 
@@ -114,7 +114,7 @@ const feature = $p.get(input, '/partials/featureWithScreenshot')
 $p.set(input, '/sections/-', feature({
   h2: "Build Anything",
   copy: $p.get(opts, '/config/copy/justBuild'),
-  imageSrc: "/png/justBuild.png"
+  imageSrc: "/img/justBuild.png"
 }))
 ```
 
@@ -125,7 +125,7 @@ $p.set(input, '/sections/-', feature({
   h2: "Built on Deno",
   pretitle: "Batteries included",
   copy: $p.get(opts, '/config/copy/justDeno'),
-  imageSrc: "/png/justDeno.png",
+  imageSrc: "/img/justDeno.png",
   reverse: true,
   buttons: [
     { href: 'https://deno.com/', label: 'Learn about Deno' },
@@ -141,7 +141,7 @@ $p.set(input, '/sections/-', feature({
   h2: "Just what you need",
   pretitle: "Embrace the constraints",
   copy: $p.get(opts, '/config/copy/justEnough'),
-  imageSrc: "/png/justEnough.png"
+  imageSrc: "/img/justEnough.png"
 }))
 ```
 

@@ -7,18 +7,20 @@ A simple proxy to fetch the pdcli package meta so I don't need to fight cors
   input.response = await fetch("https://jsr.io/@pd/pdcli/meta.json")
   ```
 
-## getCliExamples
-- route: /api/examples/cli
+## gettingStartedExamples
+- route: /api/examples/gs
 - ```ts
+    import extractor from 'markdownExtractor'
     import { parse, join } from "jsr:@std/path";
     import { walk } from "jsr:@std/fs";
-    const entries = [];
-    for await (const entry of walk("./.pd", { ext: ['.md'] })) {
-        try {
-            const path = parse(entry.path)
-            await Deno.stat() 
-            entries.push(entry);
-        } catch (e) {}
+
+    input.entries = [];
+    for await (const entry of walk("./examples/gettingStarted", { ext: ['.md'] })) {
+        if(entry.isDirectory || !entry.path.endsWith('md')) continue;
+        const markdown = await Deno.readTextFile(entry.path);
+        const {heading, text} = await extractor.process({markdown})
+        input.entries.push({heading,text,name: entry.name});
     }
 
+    input.body = input.entries;
     ```

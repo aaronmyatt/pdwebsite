@@ -1,4 +1,4 @@
-# How to install Pipedown
+# How to install Pipedown (Advanced)
 
 Let's use the wonderful [Dax](https://jsr.io/@david/dax) tool to write a Pipedown script... to install Pipedown!
 
@@ -21,4 +21,8 @@ if (navigator?.appVersion?.includes?.("Win")) {
 
 ## installDeno
 Depending on which OS we're on, the [Deno](https://deno.com) website tells us to install differently.
-![Deno Install Screenshot](./denoInstall.png)
+![Deno Install Screenshot](/img/denoInstall.png)
+
+```ts
+
+```

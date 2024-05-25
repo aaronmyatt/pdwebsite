@@ -1,32 +1,44 @@
 <section
   x-data="{
-    cards: [1,2,3,4,5,6]
-}"
+    cards: [{ heading: '', text: '', name: '' }],
+    skeletons: true,
+  }"
+  x-init="() => {
+    fetch('/api/examples/gs').then((res) => res.json()).then((data) => {
+      cards = data;
+      skeletons = false;
+    });
+  }"
 >
-  <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">Pipedown CLI</h2>
+  <h2
+    class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl"
+  >
+    Pipedown CLI
+  </h2>
   <div
     class="divide-y divide-gray-200 overflow-hidden rounded-lg bg-gray-200 shadow sm:grid sm:grid-cols-3 sm:gap-px sm:divide-y-0"
   >
     <template x-for="card in cards" name="exampleCards">
-      <div
+      <a
+        :href="`/md/${card.name}`"
         class="rounded-tl-lg rounded-tr-lg sm:rounded-tr-none group relative bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500"
       >
         <div
-          class="animate-pulse h-2 bg-slate-200 rounded text-transparent h-6 w-6"
+          class="rounded h-6 w-6"
+          x-bind:class="skeletons && 'animate-pulse text-transparent h-2 bg-slate-200'"
         ></div>
         <div class="mt-8">
-          <h3 class="text-base font-semibold leading-6 text-gray-900">
-            <a
-              href="#"
-              class="focus:outline-none animate-pulse h-2 bg-slate-200 rounded text-transparent"
-            >
-              <!-- Extend touch target to entire panel -->
-              <span class="absolute inset-0" aria-hidden="true"></span>
-              Request time off
-            </a>
+          <h3
+            x-text="card.heading"
+            class="text-base font-semibold leading-6 text-gray-900"
+            x-bind:class="skeletons && 'animate-pulse text-transparent h-2 bg-slate-200'"
+          >
+            Request time off
           </h3>
           <p
-            class="mt-2 text-sm text-gray-500 animate-pulse h-2 bg-slate-200 rounded text-transparent"
+            class="mt-2 text-sm text-gray-500 rounded"
+            x-bind:class="skeletons && 'animate-pulse text-transparent h-2 bg-slate-200'"
+            x-text="card.text"
           >
             Doloribus dolores nostrum quia qui natus officia quod et dolorem.
             Sit repellendus qui ut at blanditiis et quo et molestiae.
@@ -42,7 +54,7 @@
             />
           </svg>
         </span>
-      </div>
+      </a>
     </template>
   </div>
 </section>

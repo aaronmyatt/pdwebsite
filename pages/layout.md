@@ -40,7 +40,7 @@ input.navbar = `
   <div class="navbar-start">
       <!-- mobile nav goes here -->
     <a class="btn btn-ghost" href="/">
-      <img src="/png/logo_green.jpeg" class="w-6"/>
+      <img src="/img/logo_green.jpeg" class="w-6"/>
       <span class="text-xl">Pipedown</span>
     </a>
   </div>
@@ -139,7 +139,7 @@ input.layout = ({body}) => `<html class="no-js" lang="">
   <link rel="manifest" href="site.webmanifest"/>
   <meta name="theme-color" content="#fafafa"/>
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.9.0/dist/full.min.css" rel="stylesheet" type="text/css" />
-  <script src="https://cdn.tailwindcss.com">pd</script>
+  <script src="https://cdn.tailwindcss.com?plugins=typography">pd</script>
 </head>
 
 <body>
