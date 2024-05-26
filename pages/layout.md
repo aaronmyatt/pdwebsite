@@ -136,7 +136,7 @@ input.layout = ({body}) => `<html class="no-js" lang="">
   <link rel="icon" href="/icon.svg" type="image/svg+xml"/>
   <link rel="apple-touch-icon" href="icon.png"/>
 
-  <link rel="manifest" href="site.webmanifest"/>
+  <link rel="manifest" href="/site.webmanifest"/>
   <meta name="theme-color" content="#fafafa"/>
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.9.0/dist/full.min.css" rel="stylesheet" type="text/css" />
   <script src="https://cdn.tailwindcss.com?plugins=typography">pd</script>
