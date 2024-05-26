@@ -153,7 +153,7 @@ const buttonEl = button => `<a href="${button.href}" class="rounded-md bg-indigo
 input.featureWithScreenshot = ({h2, pretitle, copy, copy2, imageSrc, buttons}) => input.wrapSection(`
   ${ pretitle ? `<p class="text-sm font-semibold leading-6 text-indigo-600">${pretitle}</p>` : '' }
 
-  <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">${h2}</h1>
+  <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">${h2}</h2>
   <div>
     <p class="text-base md:text-xl leading-normal md:leading-8 text-gray-700">${copy}</p>
   </div>
