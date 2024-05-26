@@ -22,5 +22,5 @@ A simple proxy to fetch the pdcli package meta so I don't need to fight cors
         input.entries.push({heading,text,name: entry.name});
     }
 
-    input.body = input.entries;
+    input.body = input.entries.sort();
     ```
