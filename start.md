@@ -30,10 +30,11 @@ Object.assign(input, await api.process(input));
     ```
 
 ## Serve Md
-- route: /md/:name
+- route: /md/:format/:name
 - ```ts
     import serveMarkdown from 'serveMarkdown'
-    Object.assign(input, await serveMarkdown.process(input))
+    $p.get(input, '/route/pathname/groups')
+    Object.assign(input, await serveMarkdown.process($p.get(input, '/route/pathname/groups')))
     ```
 
 ## Serve Page

@@ -9,13 +9,25 @@ The markdown will needs to be:
   - For instance, in the immediate term, I am keep to include tutorial videos
   - This will probably just involve writing a `<video>` somewhere on the page before or after the markdown
 
+
+**Input requirements**
+```ts skip
+{
+  format: 'pretty'|'raw',
+  name: String,
+}
+```
+
+```ts
+input[input.format] = true;
+```
+
 ## getMarkdown
 ```ts
 import { walk } from "jsr:@std/fs";
-const mdName = $p.get(input, '/route/pathname/groups/name')
 
 for await (const entry of walk(Deno.cwd(), { ext: ['.md'] })) {
-    if(mdName === entry.name){
+    if(input.name === entry.name){
         input.markdown = await Deno.readTextFile(entry.path)
         break;
     }
@@ -23,27 +35,36 @@ for await (const entry of walk(Deno.cwd(), { ext: ['.md'] })) {
 ```
 
 ## mdToHTML
-```ts
-import { html } from "jsr:@pd/pulldown-cmark";
-input.parsed = html(input.markdown)
-```
+- check: /pretty
+- ```ts
+  import { html } from "jsr:@pd/pulldown-cmark";
+  input.parsed = html(input.markdown)
+  ```
 
 ## wrapWithProse
-```ts
-import partials from 'partials'
-const { wrapSection } = await partials.process()
-input.withProse = wrapSection(`<div class="prose prose-xl">${input.parsed}</div>`)
-```
+- check: /pretty
+  ```ts
+  import partials from 'partials'
+  const { wrapSection } = await partials.process()
+  input.innerHTML = wrapSection(`<div class="prose prose-xl">${input.parsed}</div>`)
+  ```
+
+## wrapWithCode
+- check: /raw
+  ```ts
+  const { wrapSection } = await partials.process()
+  input.innerHTML = wrapSection(`<pre><code>${input.markdown}</code></div>`)
+  ```
 
 ## wrapWithLayout
 ```ts
 import layout from 'layout';
 const output = await layout.process()
-input.body = output.layout({body: input.withProse})
+input.body = output.layout({body: input.innerHTML})
 ```
 
 ## respondWithHtml
 ```ts
-Object.assign(input.responseOptions.headers, { "content-type": "text/html" });
-input.responseOptions.status = 200;
+console.log($p.make({ "content-type": "text/html", status: 200 }, '/responseOptions/headers'))
+Object.assign(input, $p.make({ "content-type": "text/html", status: 200 }, '/responseOptions/headers')  );
 ```

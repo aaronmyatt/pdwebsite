@@ -29,8 +29,6 @@ A simple proxy to fetch the pdcli package meta so I don't need to fight cors
     const maybeEntries = localStorage.getItem($p.get(input, '/route/pathname/input'));
     input.entries = maybeEntries && JSON.parse(maybeEntries) || []
 
-    console.log({maybeEntries})
-
     if(input.entries.length === 0){
       await cacheExamples(input);
     } else {

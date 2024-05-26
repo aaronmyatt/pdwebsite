@@ -36,7 +36,7 @@ import { parse } from "jsr:@pd/pulldown-cmark";
 input.parsed = parse(input.markdown)
 ```
 
-## extractHeader
+## extractHeading
 ```ts
 input.headingIndex = input.parsed.findIndex(({type,tag}) => type === 'START' && tag === 'HEADING')
 input.heading = input.parsed[input.headingIndex+1]?.content
