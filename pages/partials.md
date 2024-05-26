@@ -107,8 +107,7 @@ input.horizontalCards = ({
     title: "DEFAULT",
     body: "DEFAULT",
   }]
-}) => input.wrapSection(`<div>
-  <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">${title}</h2>
+}) => input.wrapSection(`<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">${title}</h2>
   <ul role="list" class="mt-3 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
     ${cards.map(card => `<li class="col-span-1 flex rounded-md shadow-sm">
           <div class="flex w-16 flex-shrink-0 items-center justify-center bg-pink-600 rounded-l-md text-sm font-medium text-white">${card.icon}</div>
@@ -121,9 +120,7 @@ input.horizontalCards = ({
         </li>`
       ).join("\n")
     }
-  </ul>
-</div>
-`)
+  </ul>`)
 ```
 
 ## featureColumn
