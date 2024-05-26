@@ -86,7 +86,7 @@ input.installSection = input.wrapSection(`<div class="mx-auto space-y-12" name="
         <pre class="w-full"><code class="text-wrap">curl -fsSL https://deno.land/install.sh | sh</code></pre>
         <pre class="w-full"><code class="text-wrap">deno install -Arfg -n pd jsr:@pd/pdcli</code></pre>
       </div>
-      <div class="tabcontent windows bg-gray-500 flex flex-col items-center p-4 rounded space-y-2 ${Deno.env.has('DENO_DEPLOYMENT_ID') && 'hidden'}">
+      <div class="tabcontent windows bg-gray-500 flex flex-col items-center p-4 rounded space-y-2 hidden">
         <pre class="w-full"><code class="text-wrap">irm https://deno.land/install.ps1 | iex</code></pre>
         <pre class="w-full"><code class="text-wrap">deno install -Arfg -n pd jsr:@pd/pdcli</code></pre>
       </div>
