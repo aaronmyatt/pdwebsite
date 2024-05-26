@@ -30,7 +30,7 @@ Some SaaS/software tool home pages I like:
 
 ```json
 {
-    "logo": "",
+    "writePath": "./pages/html/processed/index.html",
     "copy": {
         "h1": "Executable Markdown",
         "subtitle": "Pipedown executes your markdown codeblocks top-<b>down</b>, turning your markdown into general purpose <b>executable</b> pipelines",
@@ -162,9 +162,8 @@ const footer = $p.get(input, '/partials/footer')
 input.body = input.layout({body, footer})
 ```
 
-
-## respondWithHtml
+## writePage
 ```ts
-Object.assign(input.responseOptions.headers, { "content-type": "text/html" });
-input.responseOptions.status = 200;
+await Deno.writeTextFile($p.get(opts, '/config/writePath'), input.body)
+input.body = ''
 ```
