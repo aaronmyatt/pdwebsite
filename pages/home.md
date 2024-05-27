@@ -164,6 +164,6 @@ input.body = input.layout({body, footer})
 
 ## writePage
 ```ts
-console.log({'write':await Deno.writeTextFile($p.get(opts, '/config/writePath'), input.body)})
+await Deno.writeTextFile($p.get(opts, '/config/writePath'), input.body)
 input.body = ''
 ```

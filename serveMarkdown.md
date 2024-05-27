@@ -65,6 +65,5 @@ input.body = output.layout({body: input.innerHTML})
 
 ## respondWithHtml
 ```ts
-console.log($p.make({ "content-type": "text/html", status: 200 }, '/responseOptions/headers'))
 Object.assign(input, $p.make({ "content-type": "text/html", status: 200 }, '/responseOptions/headers')  );
 ```

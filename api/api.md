@@ -24,8 +24,12 @@ A simple proxy to fetch the pdcli package meta so I don't need to fight cors
           const markdown = await Deno.readTextFile(entry.path);
           const {heading, text} = await extractor.process({markdown})
           if(!input.entries.find(entry => entry.heading === heading))
-            input.entries.push({heading,text,name: entry.name});
+            input.entries.push({ heading, text, name: entry.name });
         }
+        input.entries = input.entries.map(entry => ({
+          ...entry,
+          text: entry.text.slice(0,100)
+        }))
         const serialised = Object.values(Object.groupBy(input.entries, e => e.heading)).map(g => g[0])
         kv.set(key, serialised)
     }
@@ -39,5 +43,5 @@ A simple proxy to fetch the pdcli package meta so I don't need to fight cors
       cacheExamples(input);
     }
 
-    input.body = input.entries.sort();
+    input.body = input.entries.sort(({name: a},{name: b}) => Number(a[0]) - Number(b[0]))
     ```

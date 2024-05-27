@@ -30,8 +30,6 @@ input.cb = (event) => {
     event.preventDefault();
     event.stopPropagation();
 
-    console.log('event triggered: ', event);
-
     let clickIndex = 0;
     input.el.querySelectorAll('a').forEach((el, index) => {
         if(el === event.target){
@@ -57,7 +55,6 @@ input.cb = (event) => {
 ## registerListener
 ```ts
 input.el.querySelectorAll('a').forEach(el => {
-    console.log('registering click on: ', el);
     el.addEventListener('click', input.cb);
 });
 ```

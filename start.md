@@ -43,7 +43,6 @@ Seems Deno Deploy is pretty slow when it comes to file system reads. Could this 
 - ```ts
     if(!input.response && !Object.keys(input.body).length){
         const likelyHtmlPath = $p.get(input, '/route/pathname/groups/0')
-        console.log(join(Deno.cwd(), '/pages/html/processed', likelyHtmlPath, '.html'))
         input.response = input.response = await serveFile(input.request, join(Deno.cwd(), '/pages/html/processed', likelyHtmlPath+'.html'))
         if(input.response.status === 404){
             input.response = input.response = await serveFile(input.request, join(Deno.cwd(), '/pages/html/processed/index.html'))
