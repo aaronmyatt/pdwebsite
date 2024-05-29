@@ -1,41 +1,13 @@
 # Deploy Site
 
-```json
-{
-  "scripts": [
-    ".pd/scripts/fetchJsrMeta/index.iife.js",
-    ".pd/scripts/toggleInstallTabs/index.iife.js"
-  ]
-}
-```
-
 ```ts
 import $ from "jsr:@david/dax";
-import { basename, join } from "jsr:@std/path";
 ```
 
-## pdBuild
-Just incase.
+## build
 ```ts
-await $`pd build`
-```
-
-## PreDeploy
-Turns out Deno Deploy doesn't permit file system writes. The [Deno Deploy filesystem reference documentation](https://docs.deno.com/deploy/api/runtime-fs) is a dead give away...
-<figure>
-  <img src="/img/noWriting.png" alt="Install Deno"/>
-  <figcaption>Writes, where art thou!</figcaption>
-</figure>
-
-```ts
-import pages from 'pages'
-await pages.process()
-```
-
-## moveScripts
-```ts
-const copyPromises = $p.get(opts, '/config/scripts').map(path => Deno.copyFile(path, join('./public', basename(path))))
-await Promise.all(copyPromises)
+import build from "build";
+await build.process();
 ```
 
 ## Deploy

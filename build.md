@@ -37,6 +37,7 @@ await pages.process()
 const copyPromises = $p.get(opts, '/config/scripts').map(path => {
     const parsed = parse(path)
     return Deno.mkdir(join('./public', basename(parsed.dir)))
+        .catch(() => console.log('Already mkdir: ' + basename(parsed.dir)))
         .finally(() => Deno.copyFile(path, join('./public', basename(parsed.dir), parsed.base)))
 })
 await Promise.all(copyPromises)
