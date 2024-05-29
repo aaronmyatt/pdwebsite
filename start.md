@@ -14,21 +14,6 @@ import { join } from 'jsr:@std/path';
 import api from 'api'
 Object.assign(input, await api.process(input));
 ```
-
-## Serve Img
-- route: /img/*
-- ```ts
-    const imgPath = $p.get(input, '/route/pathname/input')
-    input.response = await serveFile(input.request, Deno.cwd()+imgPath)
-    ```
-
-## Serve Js
-- route: /scripts/*
-- ```ts
-    const jsPath = $p.get(input, '/route/pathname/input')
-    input.response = await serveFile(input.request, Deno.cwd()+'/.pd'+jsPath)
-    ```
-
 ## Serve Md
 - route: /md/:format/:name
 - ```ts
@@ -37,16 +22,24 @@ Object.assign(input, await api.process(input));
     Object.assign(input, await serveMarkdown.process($p.get(input, '/route/pathname/groups')))
     ```
 
-## Serve Page
+## Serve Static
 Seems Deno Deploy is pretty slow when it comes to file system reads. Could this be a draw back of edge hosting? Not a particularly challenging thing to overcome, however, just need to generate more HTML in the deployment script. So [[pages]] has been repurposed to delegate all page building tasks.
 - route: /*
 - ```ts
-    if(!input.response && !Object.keys(input.body).length){
-        const likelyHtmlPath = $p.get(input, '/route/pathname/groups/0')
-        input.response = input.response = await serveFile(input.request, join(Deno.cwd(), '/pages/html/processed', likelyHtmlPath+'.html'))
-        if(input.response.status === 404){
-            input.response = input.response = await serveFile(input.request, join(Deno.cwd(), '/pages/html/processed/index.html'))
-        }
+    if(input.response || Object.keys(input.body).length) return
+
+    const likelyHtmlPath = $p.get(input, '/route/pathname/groups/0')
+    // try html first so we don't need to serve pages with the .html extension
+    input.response = input.response = await serveFile(input.request, join(Deno.cwd(), 'public', likelyHtmlPath+'.html'))
+
+    if(input.response.status === 404){
+        // try something that's not html
+        input.response = input.response = await serveFile(input.request, join(Deno.cwd(), 'public', likelyHtmlPath))
+    }
+
+    if(input.response.status === 404){
+        // punt them to home
+        input.response = input.response = await serveFile(input.request, join(Deno.cwd(), 'public', 'index.html'))
     }
     ```
 

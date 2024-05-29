@@ -1,4 +1,4 @@
-# Deploy Site
+# Build Site
 
 ```json
 {
@@ -11,7 +11,7 @@
 
 ```ts
 import $ from "jsr:@david/dax";
-import { basename, join } from "jsr:@std/path";
+import { parse, join, basename } from "jsr:@std/path";
 ```
 
 ## pdBuild
@@ -32,13 +32,12 @@ import pages from 'pages'
 await pages.process()
 ```
 
-## moveScripts
+## copyScripts
 ```ts
-const copyPromises = $p.get(opts, '/config/scripts').map(path => Deno.copyFile(path, join('./public', basename(path))))
+const copyPromises = $p.get(opts, '/config/scripts').map(path => {
+    const parsed = parse(path)
+    return Deno.mkdir(join('./public', basename(parsed.dir)))
+        .finally(() => Deno.copyFile(path, join('./public', basename(parsed.dir), parsed.base)))
+})
 await Promise.all(copyPromises)
-```
-
-## Deploy
-```ts
-await $`deployctl deploy`
 ```

@@ -9,7 +9,7 @@ Let's try writing only the "body" html in the `./html` dir and processing each t
 ```json
 {
   "bodyPath": "./pages/html/examples.html",
-  "path": "./pages/html/processed/examples.html"
+  "path": "./public/examples.html"
 }
 ```
 

@@ -30,7 +30,7 @@ Some SaaS/software tool home pages I like:
 
 ```json
 {
-    "writePath": "./pages/html/processed/index.html",
+    "writePath": "./public/index.html",
     "copy": {
         "h1": "Executable Markdown",
         "subtitle": "Pipedown executes your markdown codeblocks top-<b>down</b>, turning your markdown into general purpose <b>executable</b> pipelines",
@@ -147,8 +147,8 @@ $p.set(input, '/sections/-', feature({
 
 ## addScripts
 ```ts
-input.sections.push(`<script src="/scripts/toggleInstallTabs/index.iife.js"></script>
-<script src="/scripts/fetchJsrMeta/index.iife.js"></script>
+input.sections.push(`<script src="/toggleInstallTabs/index.iife.js"></script>
+<script src="/fetchJsrMeta/index.iife.js"></script>
 <script>
 PD.toggleInstallTabs.pipe.process()
 PD.fetchJsrMeta.pipe.process({ selector: '[name="pdcli-version"]' })
