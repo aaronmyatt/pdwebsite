@@ -1,8 +1,8 @@
 # How to install Pipedown
-Two commands are all you need. Pipedown is a (Deno) Javascript library, so we need to install Deno, and then we can install Pipedown. Deno provides a handy feature to install scripts globally on your system with a customisable alias. This is how we will install Pipedown.
+Two commands are all you need. First thing we need is [Deno](https://deno.com/) - the best Javascript runtime.
 
 ## Install Deno
-First, follow the instructions from [Deno's website](https://deno.com/) to get Deno installed on your system.
+Follow the instructions on [Deno's website](https://deno.com/) to get Deno installed.
 
 <figure>
   <img src="/img/denoInstall.png" alt="Install Deno"/>
@@ -16,11 +16,11 @@ First, follow the instructions from [Deno's website](https://deno.com/) to get D
   - `irm https://deno.land/install.ps1 | iex`
 
 ## Install Pipedown
-Once Deno is available on your system we can use Deno to install Pipedown.
+Deno provides a useful feature to install scripts globally on your system with a customisable alias:
 
 `deno install -Arfg -n pd jsr:@pd/pdcli`
 
-This will install Pipedown globally on your system. Pipedown will be available anywhere by just running the `pd` command. You can customise the command name by using a different `-n` option value: `deno install -Arfg -n {your_name} jsr:@pd/pdcli`
+This will install Pipedown globally. Pipedown can be run using the `pd` command. You can customise the command name by providing a different `-n` option: `deno install -Arfg -n {your_name} jsr:@pd/pdcli`
 
 Running `pd --help` on your system should display the following:
 
