@@ -25,9 +25,8 @@ Object.assign(input, await api.process(input));
 ## Serve Static
 Seems Deno Deploy is pretty slow when it comes to file system reads. Could this be a draw back of edge hosting? Not a particularly challenging thing to overcome, however, just need to generate more HTML in the deployment script. So [[pages]] has been repurposed to delegate all page building tasks.
 - route: /*
+- not: /route/inputs/0
 - ```ts
-    if(input.response || Object.keys(input.body).length) return
-
     const likelyHtmlPath = $p.get(input, '/route/pathname/groups/0')
     // try html first so we don't need to serve pages with the .html extension
     input.response = input.response = await serveFile(input.request, join(Deno.cwd(), 'public', likelyHtmlPath+'.html'))
