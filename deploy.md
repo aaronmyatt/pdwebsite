@@ -4,7 +4,7 @@
 import $ from "jsr:@david/dax";
 ```
 
-## build
+## buildSite
 ```ts
 import build from "build";
 await build.process();

@@ -18,7 +18,6 @@ A simple proxy to fetch the pdcli package meta so I don't need to fight cors
     const key = ['request', ...$p.get(input, '/route/pathname/input').split('/').filter(p => p)]
 
     async function cacheExamples(input){
-
         for await (const entry of walk("./examples/gettingStarted", { ext: ['.md'] })) {
           if(entry.isDirectory || !entry.path.endsWith('md')) continue;
           const markdown = await Deno.readTextFile(entry.path);
