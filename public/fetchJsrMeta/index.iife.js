@@ -130,7 +130,7 @@ var PD;
     rawPipe: () => fetchJsrMeta_default
   });
 
-  // https://jsr.io/@pd/pdpipe/0.1.1/pipeline.ts
+  // https://jsr.io/@pd/pdpipe/0.2.1/pipeline.ts
   var Pipeline = class {
     stages = [];
     defaultArgs = {};
@@ -166,40 +166,46 @@ var PD;
   Object.defineProperty(import_npm_jsonpointer_5_0.default, "new", { value: setNew, writable: false, configurable: false, enumerable: false });
   var mod_default = import_npm_jsonpointer_5_0.default;
 
-  // https://jsr.io/@pd/pdpipe/0.1.1/pdUtils.ts
+  // https://jsr.io/@pd/pdpipe/0.2.1/pdUtils.ts
   function funcWrapper(funcs, opts) {
     opts.$p = mod_default;
-    return funcs.map((func, index) => async function(input) {
-      const funcConfig = mod_default.get(opts, "/steps/" + index + "/config");
-      if (funcConfig && funcConfig.checks && funcConfig.checks.length > 0) {
-        const checks = funcConfig.checks.reduce((acc, check) => {
-          acc[check] = mod_default.get(input, check);
-          return acc;
-        }, {});
-        opts.checks = checks;
-        if (!Object.values(checks).some((check) => !!check)) {
+    return funcs.map((func, index) => {
+      const config = Object.assign(
+        { checks: [], not: [], or: [], and: [], routes: [], only: false, stop: false },
+        mod_default.get(opts, "/steps/" + index + "/config")
+      );
+      return { func, config };
+    }).map(({ func, config }, index) => async function(input) {
+      const only = config.only || input?.only;
+      if (only && only !== index) return input;
+      const stop = config.stop || input?.stop;
+      if (index > stop) return input;
+      if (input?.errors && input.errors.length > 0) return input;
+      const shouldBeFalsy = config.not.map((check) => mod_default.get(input, check)).some((check) => check);
+      if (shouldBeFalsy) return input;
+      const checker = (check) => {
+        return [check.split("/").pop() || check, mod_default.get(input, check)];
+      };
+      const validator = config.and.length ? "every" : "some";
+      const conditions = config.checks.map(checker).concat(config.and.map(checker));
+      const orConditions = config.or.map(checker);
+      if (conditions.length) {
+        const firstChecks = conditions[validator](([_key, value]) => !!value);
+        const orChecks = orConditions.some(([_key, value]) => !!value);
+        if (firstChecks) {
+          mod_default.set(opts, "/checks", Object.fromEntries(conditions));
+        } else if (orChecks) {
+          mod_default.set(opts, "/checks", Object.fromEntries(orConditions));
+        } else {
           return input;
         }
       }
-      if (funcConfig && funcConfig.routes && input.request) {
-        const route = funcConfig.routes.map((route2) => new URLPattern({ pathname: route2 })).find((route2) => {
+      if (config.routes.length && input.request) {
+        const route = config.routes.map((route2) => new URLPattern({ pathname: route2 })).find((route2) => {
           return route2.test(input.request.url);
         });
-        if (!route) {
-          return input;
-        }
+        if (!route) return input;
         input.route = route.exec(input.request.url);
-      }
-      const only = funcConfig && funcConfig.only || input.only;
-      if (only && only !== index) {
-        return input;
-      }
-      const stop = funcConfig && funcConfig.stop || input.stop;
-      if (index > stop) {
-        return input;
-      }
-      if (input.errors && input.errors.length > 0) {
-        return input;
       }
       try {
         await func(input, opts);
@@ -219,7 +225,7 @@ var PD;
     });
   }
 
-  // https://jsr.io/@pd/pdpipe/0.1.1/mod.ts
+  // https://jsr.io/@pd/pdpipe/0.2.1/mod.ts
   function Pipe(funcs, opts) {
     const wrappedFuncs = funcWrapper(funcs, opts);
     return new pipeline_default(wrappedFuncs);
