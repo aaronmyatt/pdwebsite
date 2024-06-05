@@ -25,7 +25,7 @@ Or you know, use a static site generator! https://github.com/lumeland/lume
 - not: /route/inputs/0
 - ```ts
     input.response = serveDir(input.request, {
-        fsRoot: '_site',
+        fsRoot: join(Deno.cwd(), '_site'),
         showIndex: true,
     });
     ```
