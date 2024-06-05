@@ -1,3 +1,11 @@
+---
+tags:
+  - getting-started
+order: 1
+title: How to install Pipedown
+blurb: Two commands are all you need to get started with Pipedown.
+---
+
 # How to install Pipedown
 Two commands are all you need. First thing we need is [Deno](https://deno.com/) - the best Javascript runtime.
 

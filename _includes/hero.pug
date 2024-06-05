@@ -1,0 +1,20 @@
+.bg-white
+  .isolate.overflow-hidden.bg-gradient-to-b(class='from-indigo-100/20')
+    .mx-auto.max-w-7xl.pb-16.pt-10(class='sm:pb-24 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:py-24')
+      .px-6(class='lg:px-0 lg:pt-4')
+        .mx-auto.max-w-2xl
+          .max-w-lg
+            a.inline-flex.space-x-6(href='https://jsr.io/@pd/pdcli')
+                span.rounded-full.px-3.py-1.text-sm.font-semibold.leading-6.text-indigo-600.ring-1.ring-inset(class='bg-indigo-600/10 ring-indigo-600/10') What&apos;s new
+                span.inline-flex.items-center.space-x-2.text-sm.font-medium.leading-6.text-gray-600
+                    span
+                    | Just shipped 
+                    span.animate-pulse.h-2.bg-slate-200.rounded.col-span-2.text-transparent(name='pdcli-version') 0.0.0
+
+            h1.mt-10.text-4xl.font-bold.tracking-tight.text-gray-900(class='sm:text-6xl')= heading
+            p.mt-6.text-lg.leading-8.text-gray-600= subtitle
+            include heroNav.pug
+
+      .mt-20(class="sm:mt-24 md:mx-auto md:max-w-2xl lg:mx-0 lg:mt-0 lg:w-screen")
+        .shadow-lg(class="md:rounded-3xl")
+          img(class="" src=heroImage)

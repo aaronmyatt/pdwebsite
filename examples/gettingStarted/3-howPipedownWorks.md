@@ -1,3 +1,11 @@
+---
+tags:
+  - getting-started
+order: 3
+title: How does Pipedown work?
+blurb: Javascript pipelines from Markdown codeblocks.
+---
+
 # How does Pipedown work?
 
 The goal of Pipedown is to extract codeblocks from Markdown and create a "pipeline" of functions. A pipeline will be familiar to anyone who has worked with data. "Piping" data through a sequence of (Extract Transform Load) steps until it is the desired shape. 
