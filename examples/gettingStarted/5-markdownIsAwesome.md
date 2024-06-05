@@ -1,3 +1,11 @@
+---
+tags:
+  - getting-started
+order: 5
+title: Markdown is Awesome
+blurb: Markdown is just HTML - but it is also much more!
+---
+
 # Markdown is Awesome
 
 > This will likely serve as a living document as I collect more cool things from the Markdown ecosystem.

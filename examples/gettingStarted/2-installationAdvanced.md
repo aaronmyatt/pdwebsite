@@ -1,3 +1,11 @@
+---
+tags:
+  - getting-started
+order: 2
+title: How to install Pipedown (Advanced)
+blurb: Use Pipedown to install Pipedown!
+---
+
 # How to install Pipedown (Advanced)
 
 ## useDax

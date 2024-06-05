@@ -1,0 +1,23 @@
+.bg-white.mx-auto.max-w-7xl.px-6(class="lg:px-0 lg:px-8 space-y-8 sm:space-y-10 md:space-y-12 mb-24 sm:md-28 md:mb-36")
+  .mx-auto.space-y-12(name='installTabs')
+    h2.text-3xl.font-bold.tracking-tight.text-gray-900(class='sm:text-4xl md:text-5xl') Install
+    .space-y-3.flex.flex-col.items-center
+      .border-b.border-gray-200.w-full
+        nav.-mb-px.flex(aria-label='Tabs')
+          a.border-transparent.text-gray-500.border-b-2.py-4.px-1.text-center.text-sm.font-medium.border-indigo-500.text-indigo-600(href='', class='hover:border-gray-300 hover:text-gray-700 w-1/2') Mac / Linux
+          a.border-transparent.text-gray-500.border-b-2.py-4.px-1.text-center.text-sm.font-medium(href='', class='hover:border-gray-300 hover:text-gray-700 w-1/2') Windows
+      .flex.flex-col.items-center.text-xs.text-white(class='md:w-1/2 sm:text-lg')
+        .tabcontent.bg-gray-500.flex.flex-col.items-center.p-4.rounded.space-y-2
+          pre.w-full
+            code.text-wrap
+            | curl -fsSL https://deno.land/install.sh | sh
+          pre.w-full
+            code.text-wrap
+            | deno install -Arfg -n pd jsr:@pd/pdcli
+        .tabcontent.windows.bg-gray-500.flex.flex-col.items-center.p-4.rounded.space-y-2.hidden
+          pre.w-full
+            code.text-wrap
+            | irm https://deno.land/install.ps1 | iex
+          pre.w-full
+            code.text-wrap
+            | deno install -Arfg -n pd jsr:@pd/pdcli

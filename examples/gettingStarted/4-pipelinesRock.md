@@ -1,3 +1,11 @@
+---
+tags:
+  - getting-started
+order: 4
+title: Pipelines Rock!
+blurb: From big oil to the hiring pipeline in your company, pipelines are common.
+---
+
 # Pipelines Rock!
 
 From big oil to the hiring pipeline in your company, pipelines are common. They are a simple and intuitive concept to understand. Something goes in one end and comes out the other. 

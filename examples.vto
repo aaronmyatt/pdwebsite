@@ -1,0 +1,46 @@
+<div class="bg-white mx-auto max-w-7xl px-6 lg:px-0 lg:px-8 space-y-8 sm:space-y-10 md:space-y-12 mb-24 sm:md-28 md:mb-36">
+  
+  <h1 class="mt-10 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+  Examples
+  </h1>
+  <div class="mt-10 space-y-8 sm:space-y-10 md:space-y-12">
+    <section>
+      <h2
+        class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl"
+      >
+        Getting Started
+      </h2>
+      <div
+        class="mt-6 divide-y divide-gray-200 overflow-hidden rounded-lg sm:bg-gray-200 shadow sm:grid sm:grid-cols-2 md:grid-cols-3 sm:gap-px sm:divide-y-0"
+      >
+          {{ for post of search.pages('getting-started', 'order') }}
+            <a
+            href="{{post.url}}"
+            class="rounded-tl-lg rounded-tr-lg sm:rounded-tr-none group relative bg-white focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500"
+          >
+            <div class="mt-8 p-6">
+              <h3
+                class="text-xl font-semibold leading-6 text-gray-900"
+              >
+                {{ post.title }}
+              </h3>
+              <p class="mt-2 text-sm text-gray-500 rounded">
+                {{ post.blurb }}
+              </p>
+            </div>
+            <span
+              class="pointer-events-none absolute right-6 top-6 text-gray-300 group-hover:text-gray-400"
+              aria-hidden="true"
+            >
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z"
+                />
+              </svg>
+            </span>
+          </a>
+          {{/for}}
+      </div>
+    </section>
+  </div>
+</div>
