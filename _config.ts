@@ -1,5 +1,3 @@
-import { parse, join, basename } from "jsr:@std/path";
-
 import lume from "lume/mod.ts";
 import tailwindcss from "lume/plugins/tailwindcss.ts";
 import postcss from "lume/plugins/postcss.ts";
