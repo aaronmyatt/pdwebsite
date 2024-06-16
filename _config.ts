@@ -2,6 +2,7 @@ import lume from "lume/mod.ts";
 import tailwindcss from "lume/plugins/tailwindcss.ts";
 import postcss from "lume/plugins/postcss.ts";
 import typography from "npm:@tailwindcss/typography";
+import daisyui from "npm:daisyui";
 import pug from "lume/plugins/pug.ts";
 import prism from "lume/plugins/prism.ts";
 import "npm:prismjs@1.29.0/components/prism-bash.js";
@@ -14,7 +15,7 @@ site.use(pug(/* Options */));
 site.use(tailwindcss({
     extensions: [".html", ".md", ".pug"],
     options: {
-        plugins: [typography],
+        plugins: [typography, daisyui],
     },
 }));
 site.use(postcss());
