@@ -7,9 +7,21 @@ import pug from "lume/plugins/pug.ts";
 import prism from "lume/plugins/prism.ts";
 import "npm:prismjs@1.29.0/components/prism-bash.js";
 import "npm:prismjs@1.29.0/components/prism-markdown.js";
+import { Plugin as wikilinkPlugin } from "jsr:@atm/markdown-it-wikilink-plugin@0.1.0"
 
 
-const site = lume();
+const site = lume({}, {
+    markdown: {
+        plugins: [
+            wikilinkPlugin({
+                basePath: "",
+                relativePaths: false,
+                stripExtension: true,
+                regex: false,
+            }),
+        ],
+    },
+});
 
 site.use(pug(/* Options */));
 site.use(tailwindcss({

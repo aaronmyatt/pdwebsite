@@ -2,6 +2,7 @@
   "version": "3",
   "packages": {
     "specifiers": {
+      "jsr:@atm/markdown-it-wikilink-plugin@0.1.0": "jsr:@atm/markdown-it-wikilink-plugin@0.1.0",
       "jsr:@pd/pdpipe@0.1.1": "jsr:@pd/pdpipe@0.1.1",
       "jsr:@pd/pointers@0.1.0": "jsr:@pd/pointers@0.1.0",
       "jsr:@pd/pointers@0.1.1": "jsr:@pd/pointers@0.1.1",
@@ -57,6 +58,9 @@
       "npm:tailwindcss@3.4.3": "npm:tailwindcss@3.4.3_postcss@8.4.38"
     },
     "jsr": {
+      "@atm/markdown-it-wikilink-plugin@0.1.0": {
+        "integrity": "9bfdae5df81f77d28092c30136c00ec210ac7bbc70756226a02cc3fc9aa4c5f7"
+      },
       "@pd/pdpipe@0.1.1": {
         "integrity": "5563661e80e3b1fea7b2ca841f02b39bada03f72c85033031ff15a45ef97b8d8",
         "dependencies": [
