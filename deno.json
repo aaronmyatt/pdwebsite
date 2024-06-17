@@ -5,7 +5,7 @@
       "**/node_modules"
     ],
     "include": [],
-    "entrypoint": ".pd/start/server.ts"
+    "entrypoint": ".pd/scripts/start/server.ts"
   },
   "imports": {
     "lume/": "https://deno.land/x/lume@v2.2.0/"
