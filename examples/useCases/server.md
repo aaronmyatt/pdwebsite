@@ -2,7 +2,7 @@
 title: Pipedown as a Server
 blurb: Pipedown can be used to create and host servers with ease.
 tags: 
- - 'usecases'
+ - usecases
 ---
 
 # Pipedown as a Server
