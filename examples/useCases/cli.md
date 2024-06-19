@@ -11,16 +11,12 @@ Many software folk spend their day looking at a command line interface (CLI). Th
 
 ![alt text](/img/terminalmeme.png)
 
-An under-served use case for CLI apps is prototyping/modelling. The CLI is skipped because mapping the CLI app to your final solution is not always straight forward. A surprising discovery when building Pipedown was that modelling the core of an application, its business logic and persistance layer, was trivially translated from a CLI to the web. The combination of universally executable pipes and Deno building on web standards makes this possible.
-
-An optimistic dream of software was that anyone with access to a computer can build whatever they want. My hope is to revitalise that dream through a new era of accessible, executable Markdown!
-
 ## Let's build a weather CLI
 Let's build a weather checking app to demonstrate building CLI apps with Pipedown. (Copilot autocompleted my title, so I went along with it!)
 
 We'll use the [OpenWeatherMap API](https://openweathermap.org/api) to get the current weather for a given city.
 
-> Just update this config object with your chosen city and make sure to the root of your Pipedown project in a `.env` file: `OPEN_WEATHER_API_KEY=xxxxx`.
+> Just update this config object 👇 with your chosen city and make sure add a `.env` file at the root of your project with: `OPEN_WEATHER_API_KEY=xxxxx`.
 ```json
 {
     "city": "Kuala Lumpur",

@@ -22,7 +22,7 @@ The [Pipedown core library](https://github.com/aaronmyatt/pipedown) is also writ
 1. Read markdown
    1. Extract codeblocks, lists and headings
 2. [Convert to JSON](https://github.com/aaronmyatt/pipedown/blob/main/mdToPipe.ts)
-   1. If were codeblocks in a Markdown list, they might be special
+   1. If were the codeblocks are in a Markdown list, they might be special
 3. [Write Javascript](https://github.com/aaronmyatt/pipedown/blob/main/pipeToScript.ts)
 
 <figure>

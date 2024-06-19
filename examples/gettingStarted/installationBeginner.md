@@ -52,4 +52,5 @@ Options:
 $
 ```
 
-| That's it! You're ready to start using Pipedown. Happy piping!
+---
+That's it! You're ready to start using Pipedown. Happy piping!

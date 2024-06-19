@@ -46,7 +46,7 @@ The real power, however, comes from using pipelines _only_. With consistency and
 
 ### Consistency
 
-A consistent interface to both execute and write your code, removes a tremendous amount of mental overhead. 
+A consistent interface to both execute and write your code removes a tremendous amount of mental overhead. 
 
 Every pipelines is executed the same:
 
@@ -127,6 +127,6 @@ This is one of Pipedown's unique selling points. A consistent, constrained, simp
 ## In closing
 I think I have been looking for a consistent, constrained, simple, and intuitive way to write code since I wrote my first libraries.
 
-It just took me 10 years to for all the pieces to come together, and put them into a set of practices and tools.
+It just took me 10 years for all the pieces to come together, and put them into a set of practices and tools.
 
 Overtime I hope pipedown will evolve, a community will form, and we can all build amazing things together.
